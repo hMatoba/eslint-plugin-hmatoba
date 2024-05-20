@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "strict": true,
+    "esModuleInterop": true,
+    "lib": ["esnext"],
+  },
+  "include": [
+    "file.ts",
+  ]
+}
