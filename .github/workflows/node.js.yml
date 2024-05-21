@@ -45,10 +45,6 @@ jobs:
 
     needs: build
 
-    on:
-      release:
-        types: [published]
-
     strategy:
       matrix:
         node-version: [22.x]
