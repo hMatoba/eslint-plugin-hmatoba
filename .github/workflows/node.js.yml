@@ -41,7 +41,7 @@ jobs:
     - run: npm ci
     - run: npm run build
 
-  publish:
+  publish-to-npm:
 
     needs: build
 
