@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-hmatoba",
-  "version": "1.0.0-b0",
+  "version": "1.0.0-b1",
   "description": "",
   "main": "./dist/index.js",
   "type": "module",
