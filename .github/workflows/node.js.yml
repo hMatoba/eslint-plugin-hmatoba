@@ -26,7 +26,7 @@ jobs:
   build:
 
     needs: test
-
+    on: release
     strategy:
       matrix:
         node-version: [18.x, 20.x, 22.x]
@@ -43,7 +43,7 @@ jobs:
 
   publish_to_npm:
 
-    needs: build
+    needs: [test, build]
 
     strategy:
       matrix:
