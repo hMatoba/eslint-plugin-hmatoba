@@ -26,7 +26,7 @@ jobs:
   build:
 
     needs: test
-    on: release
+    if: startsWith(github.ref, 'refs/tags/')
     strategy:
       matrix:
         node-version: [18.x, 20.x, 22.x]
