@@ -43,7 +43,7 @@ jobs:
 
   publish_to_npm:
 
-    needs: [test, build]
+    needs: build
 
     strategy:
       matrix:
