@@ -1,12 +1,12 @@
 name: Node.js CI
 
 on:
-  relaese:
-    types: [created]
+  push:
+    tags:
+      - *
 
 jobs:
   test:
-
     strategy:
       matrix:
         node-version: [18.x, 20.x, 22.x]
@@ -22,7 +22,6 @@ jobs:
     - run: npm test
 
   publish_to_npm:
-
     needs: test
     strategy:
       matrix:
