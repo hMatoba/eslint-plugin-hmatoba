@@ -2,13 +2,11 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    tags:
+      - '*'
 
 jobs:
   test:
-
     strategy:
       matrix:
         node-version: [18.x, 20.x, 22.x]
@@ -23,12 +21,11 @@ jobs:
     - run: npm ci
     - run: npm test
 
-  build:
-
+  publish_to_npm:
     needs: test
     strategy:
       matrix:
-        node-version: [18.x, 20.x, 22.x]
+        node-version: [22.x]
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
@@ -36,6 +33,10 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
+        registry-url: 'https://registry.npmjs.org'
         cache: 'npm'
     - run: npm ci
     - run: npm run build
+    - run: npm publish
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
