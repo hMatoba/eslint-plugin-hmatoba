@@ -5,7 +5,6 @@ export const noTypeAssertion = ESLintUtils.RuleCreator.withoutDocs({
   create(context) {
     return {
       ['TSAsExpression']: (node: TSESTree.Node) => {
-        console.log(node.type);
         context.report({
           messageId: "noTypeAssertion",
           node,
